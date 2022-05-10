@@ -1,13 +1,13 @@
 const NavBar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="link">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+          <a className="navbar-brand" href="link">
             JERSEYS
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarNav"
@@ -15,22 +15,22 @@ const NavBar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item active">
-                <a class="nav-link" href="link">
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item active">
+                <a className="nav-link" href="link">
                   Fútbol
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="link">
+              <li className="nav-item">
+                <a className="nav-link" href="link">
                   Basketball
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="link">
+              <li className="nav-item">
+                <a className="nav-link" href="link">
                   Hockey
                 </a>
               </li>
