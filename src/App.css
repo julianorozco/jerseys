@@ -40,6 +40,9 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande";
 }
+body img {
+  width: 300px;
+}
 nav img {
   width: 150px;
   margin-right: 100px;

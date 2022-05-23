@@ -1,7 +1,21 @@
-const ItemListContainer = (props) => {
+import ItemList from "../ItemList/ItemList";
+import { getProducts } from "../../asyncmock";
+import { useState, useEffect } from "react";
+
+const ItemListContainer = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    getProducts().then((response) => {
+      setProducts(response);
+    });
+  }, []);
   return (
     <>
-      <h1 className="container lead mt-4">{props.greetings}</h1>
+      <div className="container">
+        <div className="d-flex flex-row flex-wrap justify-content-center align-items-center">
+          <ItemList products={products} />
+        </div>
+      </div>
     </>
   );
 };
