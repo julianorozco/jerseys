@@ -9,7 +9,7 @@ function App() {
     <>
       <NavBar />
       <ItemListContainer greetings="Bienvenidos!" />
-      <ItemCount />
+      <ItemCount stock={5} initial={0} />
     </>
   );
 }
