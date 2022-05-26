@@ -8,6 +8,7 @@ function App() {
     <>
       <NavBar />
       <ItemListContainer greetings="Bienvenidos!" />
+      <ItemCount stock={5} initial={0} />
     </>
   );
 }
