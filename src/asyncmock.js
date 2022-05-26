@@ -2,7 +2,7 @@ const products = [
   {
     id: 1,
     title: "Barcelona",
-    description: "Camiseta de Barcelona.",
+    description: "Camiseta de Fútbol Club Barcelona.",
     price: 3500,
     pictureUrl:
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,b_rgb:f5f5f5/0518acd2-6e76-469c-b46c-1b930c28bbfd/jersey-de-f%C3%BAtbol-del-fc-barcelona-local-2021-22-stadium-T9vlrx.png",
@@ -55,10 +55,19 @@ const products = [
   },
 ];
 
+
 export const getProducts = () => {
+return new Promise((resolve) => {
+   setTimeout(() => {
+      resolve(products);
+    }, 2000);
+  });
+};
+
+export const getItem = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(products);
+      resolve(products[0]);
     }, 2000);
   });
 };
