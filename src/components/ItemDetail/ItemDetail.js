@@ -4,19 +4,31 @@ import ItemCount from "../ItemCount/ItemCount";
 const ItemDetail = ({ item }) => {
   return (
     <>
-      <div className="container d-flex justify-content-center">
-        <div className="card d-flex">
-          <p className="lead p-3">{item.title}</p>
-          <div className="d-flex">
-            <img src={item.pictureUrl} alt="..." />
-            <div className="d-flex flex-column">
-              <p className="lead p-3 font-weight-bold">$ {item.price}</p>
-              <p className="lead p-3"> {item.description}</p>
+      <section>
+        <div className="container px-4 px-lg-5 my-5">
+          <div className="row gx-4 gx-lg-5 align-items-center">
+            <div className="col-md-6">
+              <img
+                className="w-100 shadow mb-5 bg-white rounded"
+                src={item.pictureUrl}
+                alt="..."
+              />
+            </div>
+            <div className="col-md-6">
+              <div className="small mb-1">Item:&nbsp;{item.id}</div>
+              <h1 className="display-5 fw-bolder">{item.title}</h1>
+              <div className="fs-5 mb-5">
+                <span className="text-decoration-line-through">
+                  ${item.price + 1000}
+                </span>
+                <span>&nbsp;${item.price}</span>
+              </div>
+              <p>{item.description}</p>
+              <ItemCount stock={5} initial={0} />
             </div>
           </div>
-          <ItemCount stock={5} initial={0} />
         </div>
-      </div>
+      </section>
     </>
   );
 };

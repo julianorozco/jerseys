@@ -38,7 +38,10 @@
 }
 
 body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande";
+  @font-face {
+    font-family: "Lato";
+    src: url("https://fonts.googleapis.com/css?family=Lato";);
+  }
 }
 body img {
   width: 300px;

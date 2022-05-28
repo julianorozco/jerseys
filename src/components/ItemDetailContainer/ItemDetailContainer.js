@@ -3,10 +3,10 @@ import { getItem } from "../../asyncmock";
 import { useState, useEffect } from "react";
 
 const ItemDetailContainer = () => {
-  const [item, setItems] = useState([]);
+  const [item, setItem] = useState([]);
   useEffect(() => {
     getItem().then((response) => {
-      setItems(response);
+      setItem(response);
     });
   }, []);
   return (
