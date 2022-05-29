@@ -11,7 +11,7 @@ const ItemDetail = ({ item }) => {
               <img
                 className="w-100 shadow mb-5 bg-white rounded"
                 src={item.pictureUrl}
-                alt="..."
+                alt=""
               />
             </div>
             <div className="col-md-6">
