@@ -15,7 +15,7 @@ const ItemDetailContainer = () => {
   return (
     <div className="container">
       <div className="d-flex flex-row flex-wrap justify-content-center align-items-center">
-        <ItemDetail item={item} />
+        <ItemDetail {...item} />
       </div>
     </div>
   );
