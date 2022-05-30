@@ -1,7 +1,7 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({ pictureUrl, id, title, price, description }) => {
+const ItemDetail = ({ pictureUrl, code, title, price, description, stock }) => {
   return (
     <>
       <section>
@@ -15,16 +15,14 @@ const ItemDetail = ({ pictureUrl, id, title, price, description }) => {
               />
             </div>
             <div className="col-md-6">
-              <div className="small mb-1">Item:&nbsp;{id}</div>
+              <div className="small mb-1">Item:&nbsp;{code}</div>
               <h1 className="display-5 fw-bolder">{title}</h1>
               <div className="fs-5 mb-5">
-                <span className="text-decoration-line-through">
-                  ${price + 1000}
-                </span>
-                <span>&nbsp;${price}</span>
+                <span>$&nbsp;{price}</span>
               </div>
               <p>{description}</p>
-              <ItemCount stock={5} initial={0} />
+              <div className="small mb-1">Stock:&nbsp;{stock}</div>
+              <ItemCount stock={stock} initial={0} />
             </div>
           </div>
         </div>
