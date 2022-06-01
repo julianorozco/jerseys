@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
 
   const decrement = () => {
@@ -35,7 +35,13 @@ const ItemCount = ({ stock, initial }) => {
         </button>
       </div>
       <div className="d-flex justify-content-center align-items-center">
-        <button type="button" className="btn btn-dark">
+        <button
+          type="button"
+          className="btn btn-dark"
+          onClick={() => {
+            onAdd(count);
+          }}
+        >
           Agregar al carrito
         </button>
       </div>

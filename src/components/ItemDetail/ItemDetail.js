@@ -1,7 +1,13 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ pictureUrl, code, title, price, description, stock }) => {
+  const [end, setEnd] = useState(null);
+  function onAdd() {
+    setEnd(".");
+  }
   return (
     <>
       <section>
@@ -22,7 +28,15 @@ const ItemDetail = ({ pictureUrl, code, title, price, description, stock }) => {
               </div>
               <p>{description}</p>
               <div className="small mb-1">Stock:&nbsp;{stock}</div>
-              <ItemCount stock={stock} initial={0} />
+              {!end ? (
+                <ItemCount stock={stock} initial={0} onAdd={onAdd} />
+              ) : (
+                <Link to={`/cart/`} className="text-decoration-none">
+                  <div className="d-flex justify-content-center align-items-center">
+                    <button className="btn btn-dark">Terminar compra</button>
+                  </div>
+                </Link>
+              )}
             </div>
           </div>
         </div>
