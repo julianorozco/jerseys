@@ -10,9 +10,9 @@ const CartWidget = () => {
   return (
     <>
       <Link to="/cart" className="text-decoration-none">
-        <a href="-" className="navbar-brand">
+        <span className="navbar-brand">
           <FontAwesomeIcon icon={faShoppingCart} />
-        </a>
+        </span>
         <span className="badge rounded-pill bg-danger">{quantity}</span>
       </Link>
     </>
