@@ -9,11 +9,11 @@ const CartWidget = () => {
   const quantity = getQuantity();
   return (
     <>
-      <Link to="/cart">
+      <Link to="/cart" className="text-decoration-none">
         <a href="-" className="navbar-brand">
           <FontAwesomeIcon icon={faShoppingCart} />
         </a>
-        {quantity}
+        <span className="badge rounded-pill bg-danger">{quantity}</span>
       </Link>
     </>
   );

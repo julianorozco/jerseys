@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 
 const Cart = () => {
@@ -20,30 +21,25 @@ const Cart = () => {
                           <div>
                             <div className="p-3 shadow">
                               <div className="row d-flex justify-content-between align-items-center">
-                                <div className="col-md-2 col-lg-2 col-xl-2">
-                                  <img src={prod.pictureUrl} alt="" className="rounded img-thumbnail" />
-                                </div>
+                                <Link to={`/detail/${prod.id}`} className="col-md-2 col-lg-2 col-xl-2">
+                                  <img src={prod.pictureUrl} alt="" className="w-75 img-thumbnail" />
+                                </Link>
                                 <div className="col-md-3 col-lg-3 col-xl-3">
-                                  <h6>{prod.title}</h6>
+                                  <h6 className="fs-6">Camiseta: {prod.title}</h6>
                                 </div>
                                 <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                  <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                  <button className="btn btn-link px-2">
                                     <i className="fas fa-minus"></i>
                                   </button>
-                                  <input
-                                    id="form1"
-                                    min="0"
-                                    name="quantity"
-                                    value={prod.quantity}
-                                    type="number"
-                                    className="form-control form-control-sm"
-                                  />
-                                  <button className="btn btn-link px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                  <div>
+                                    <h6 className="fs-6">Cantidad: {prod.quantity}</h6>
+                                  </div>
+                                  <button className="btn btn-link px-2">
                                     <i className="fas fa-plus"></i>
                                   </button>
                                 </div>
                                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                  <h6 className="mb-0">$ {prod.price * prod.quantity}</h6>
+                                  <h6 className="mb-0 fs-6">Subtotal: $ {prod.price * prod.quantity}</h6>
                                 </div>
                                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                   <a href="#!" className="text-muted">
