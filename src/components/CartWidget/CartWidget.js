@@ -1,16 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import CartContext from "../../context/CartContext";
 
 const CartWidget = () => {
+  const { getQuantity } = useContext(CartContext);
+  const quantity = getQuantity();
   return (
     <>
-      <a href="-" className="navbar-brand">
-        <FontAwesomeIcon icon={faCircleUser} />
-      </a>
-      <a href="-" className="navbar-brand">
-        <FontAwesomeIcon icon={faShoppingCart} />
-      </a>
+      <Link to="/cart">
+        <a href="-" className="navbar-brand">
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </a>
+        {quantity}
+      </Link>
     </>
   );
 };
