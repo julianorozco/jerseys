@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 
 const Cart = () => {
-  const { cart, removeItem } = useContext(CartContext);
-
+  const { cart, removeItem, getQuantity, getTotal } = useContext(CartContext);
+  const quantity = getQuantity();
+  const total = getTotal();
   return (
     <>
       <section className="h-100 h-custom">
@@ -39,7 +40,7 @@ const Cart = () => {
                                   </button>
                                 </div>
                                 <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                  <h6 className="mb-0 fs-6">Subtotal: $ {prod.price * prod.quantity}</h6>
+                                  <h6 className="mb-0 fs-6">Subtotal: $ {prod.quantity * prod.price}</h6>
                                 </div>
                                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                   <a href="#!" className="text-muted">
@@ -60,8 +61,8 @@ const Cart = () => {
                         <h3 className="fw-bold mb-5 mt-2 pt-1">Resumen</h3>
                         <hr className="my-4"></hr>
                         <div className="d-flex justify-content-between mb-4">
-                          <h5 className="text-uppercase">Items</h5>
-                          <h5>$ 132</h5>
+                          <h5 className="text-uppercase">{quantity} Camisetas</h5>
+                          <h5>$ {total}</h5>
                         </div>
                         <div className="d-flex justify-content-between mb-4">
                           <h5 className="text-uppercase">Envio</h5>
@@ -70,7 +71,7 @@ const Cart = () => {
                         <hr className="my-4"></hr>
                         <div className="d-flex justify-content-between mb-5">
                           <h5 className="text-uppercase">Total</h5>
-                          <h5>$ 132</h5>
+                          <h5>$ {total}</h5>
                         </div>
                         <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">
                           Comprar
