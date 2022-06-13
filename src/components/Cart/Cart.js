@@ -6,6 +6,38 @@ const Cart = () => {
   const { cart, removeItem, getQuantity, getTotal } = useContext(CartContext);
   const quantity = getQuantity();
   const total = getTotal();
+
+  if (quantity === 0) {
+    return (
+      <>
+        <div className="container-fluid  mt-100">
+          <div className="row">
+            <div className="col-md-12">
+              <div className="card">
+                <div className="card-body cart">
+                  <div className="col-sm-12 text-center">
+                    <span className="display-6">
+                      <img
+                        src="https://media.istockphoto.com/vectors/empty-shopping-bag-icon-online-business-vector-icon-template-vector-id861576608?k=20&m=861576608&s=612x612&w=0&h=UgHaPYlYrsPTO6BKKTzizGQqFgqEnn7eYK9EOA16uDs="
+                        alt=""
+                      />
+                    </span>
+                    <h3 className="lead p-3">El carrito se encuentra vacío</h3>
+                    <Link to={`/`}>
+                      <button type="button" className="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">
+                        Ir al listado
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <section className="h-100 h-custom">
@@ -20,7 +52,7 @@ const Cart = () => {
                       {cart.map((prod) => {
                         return (
                           <div key={prod.id}>
-                            <div className="p-5 shadow">
+                            <div className="p-4 shadow">
                               <div className="row d-flex justify-content-between align-items-center">
                                 <Link to={`/detail/${prod.id}`} className="col-md-2 col-lg-2 col-xl-2">
                                   <img src={prod.pictureUrl} alt="" className="w-75 img-thumbnail" />
@@ -39,8 +71,8 @@ const Cart = () => {
                                     <i className="fas fa-plus"></i>
                                   </button>
                                 </div>
-                                <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                  <h6 className="mb-0 fs-6">Subtotal: $ {prod.quantity * prod.price}</h6>
+                                <div className="col-md-3 col-lg-3 col-xl-3">
+                                  <h6 className="fs-6">Subtotal: $ {prod.quantity * prod.price}</h6>
                                 </div>
                                 <div className="col-md-1 col-lg-1 col-xl-1 text-end">
                                   <a href="#!" className="text-muted">
