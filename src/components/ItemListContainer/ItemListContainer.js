@@ -1,22 +1,19 @@
 import ItemList from "../ItemList/ItemList";
-import { getProducts } from "../../asyncmock";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getProductsByCategory } from "../../asyncmock";
+import { getDocs, collection } from "firebase/firestore";
+import { db } from "../../services/firebase";
 
 const ItemListContainer = ({ handlePage }) => {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
   useEffect(() => {
-    if (!categoryId) {
-      getProducts().then((response) => {
-        setProducts(response);
+    getDocs(collection(db, "products")).then((response) => {
+      const products = response.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
       });
-    } else {
-      getProductsByCategory(categoryId).then((response) => {
-        setProducts(response);
-      });
-    }
+      setProducts(products);
+    });
   }, [categoryId]);
   return (
     <>
