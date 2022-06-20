@@ -100,7 +100,7 @@ const Cart = () => {
       </>
     );
   }
-
+  
   return (
     <>
       <section className="h-100 h-custom">
