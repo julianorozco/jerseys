@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
 import { addDoc, collection, getDocs, query, where, documentId, writeBatch } from "firebase/firestore";
 import { db } from "../../services/firebase";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const { cart, removeItem, getQuantity, getTotal, clearCart } = useContext(CartContext);
@@ -22,6 +23,9 @@ const Cart = () => {
   };
 
   const createOrder = () => {
+    toast.loading("Procesando tu compra", {
+      duration: 1000,
+    });
     const objOrder = {
       buyer: {
         nombre: data.nombre,
@@ -56,8 +60,15 @@ const Cart = () => {
           const collectionRef = collection(db, "orders");
           return addDoc(collectionRef, objOrder);
         } else {
-          return Promise.reject({ type: "out_of_stock", products: outOfStock });
+          toast.error("No hay stock de uno o mas productos seleccionados");
         }
+      })
+      .then(({ id }) => {
+        batch.commit();
+        toast.success(`Compra exitosa! tu numero orden es: ${id}`, {
+          duration: 8000,
+        });
+        clearCart();
       });
   };
 
@@ -71,10 +82,7 @@ const Cart = () => {
                 <div className="card-body cart">
                   <div className="col-sm-12 text-center">
                     <span className="display-6">
-                      <img
-                        src="https://media.istockphoto.com/vectors/empty-shopping-bag-icon-online-business-vector-icon-template-vector-id861576608?k=20&m=861576608&s=612x612&w=0&h=UgHaPYlYrsPTO6BKKTzizGQqFgqEnn7eYK9EOA16uDs="
-                        alt=""
-                      />
+                      <img src="bag.png" alt="" className="h-25 d-inline-block" />
                     </span>
                     <h3 className="lead p-3">El carrito se encuentra vacío</h3>
                     <Link to={`/`}>
@@ -157,7 +165,13 @@ const Cart = () => {
                               <input type="tel" placeholder="Teléfono" className="form-control" onChange={handleInputChange} name="phone"></input>
                             </div>
                             <div className="p-1">
-                              <input type="text" placeholder="Dirección" className="form-control" onChange={handleInputChange} name="address"></input>
+                              <input
+                                type="text"
+                                placeholder="Dirección de envío"
+                                className="form-control"
+                                onChange={handleInputChange}
+                                name="address"
+                              ></input>
                             </div>
                           </form>
                         </div>
