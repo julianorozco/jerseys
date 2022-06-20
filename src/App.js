@@ -6,12 +6,14 @@ import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Cart from "./components/Cart/Cart";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <>
       <CartContextProvider>
         <BrowserRouter>
+          <Toaster reverseOrder={true} />
           <NavBar />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />

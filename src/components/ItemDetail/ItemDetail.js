@@ -31,9 +31,22 @@ const ItemDetail = ({ id, pictureUrl, code, title, price, description, stock }) 
               <p>{description}</p>
               <div className="small mb-1">Stock:&nbsp;{stock}</div>
               {quantity > 0 ? (
-                <Link to="/cart" type="button" className="btn btn-dark">
-                  Finalizar compra
-                </Link>
+                <>
+                  <div className="container">
+                    <div className="row mx-5">
+                      <Link to="/cart" className="btn d-flex justify-content-center col-sm">
+                        <button type="button" className="btn btn-dark">
+                          Ir al carrito
+                        </button>
+                      </Link>
+                      <Link to="/" className="btn d-flex justify-content-center col-sm">
+                        <button type="button" className="btn btn-dark">
+                          Volver al listado
+                        </button>
+                      </Link>
+                    </div>
+                  </div>
+                </>
               ) : (
                 <ItemCount stock={stock} onAdd={handleOnAdd} initial={getProduct(id)?.quantity} />
               )}
