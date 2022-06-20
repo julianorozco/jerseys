@@ -1,6 +1,6 @@
 # Jerseys
 
-![](https://raw.githubusercontent.com/julianorozco/jerseys/7-preentrega/public/images/logo.PNG)
+![](https://raw.githubusercontent.com/julianorozco/jerseys/12-firebase2/public/images/logo.PNG)
 
 ## Descripción:
 
