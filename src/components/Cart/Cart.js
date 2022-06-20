@@ -1,3 +1,4 @@
+import "../../App.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import CartContext from "../../context/CartContext";
@@ -82,7 +83,7 @@ const Cart = () => {
                 <div className="card-body cart">
                   <div className="col-sm-12 text-center">
                     <span className="display-6">
-                      <img src="bag.png" alt="" className="h-25 d-inline-block" />
+                      <img src="bag.png" alt="" className="h-25 d-inline-block bag" />
                     </span>
                     <h3 className="lead p-3">El carrito se encuentra vacío</h3>
                     <Link to={`/`}>

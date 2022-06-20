@@ -1,3 +1,4 @@
+import "../../App.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useContext } from "react";
@@ -10,10 +11,16 @@ const CartWidget = () => {
   return (
     <>
       <Link to="/cart" className="text-decoration-none">
-        <span className="navbar-brand">
-          <FontAwesomeIcon icon={faShoppingCart} />
-        </span>
-        <span className="badge rounded-pill bg-danger">{quantity}</span>
+        <div className="container">
+          <div className="row">
+            <div className="col sm navbar-brand">
+              <FontAwesomeIcon icon={faShoppingCart} />
+            </div>
+            <div className="col sm">
+              <div className="badge rounded-pill bg-danger counter">{quantity}</div>
+            </div>
+          </div>
+        </div>
       </Link>
     </>
   );
