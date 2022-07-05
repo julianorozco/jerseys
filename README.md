@@ -9,11 +9,15 @@ Se trata de una tienda e-commerce de camisetas deportivas la cual permite filtra
 ## Instalación:
 
 Clonar:
-git clone https://github.com/julianorozco/jerseys.git
+```bash
+  git clone https://github.com/julianorozco/jerseys.git
+```
 
 Ejecutar:
-npm install
-npm start
+```bash
+  npm install
+  npm start
+```
 
 ## Desarrollado con:
 
@@ -25,6 +29,9 @@ npm start
 
 ## Dependencias NPM:
 
-- @fortawesome/react-fontawesome : Iconos del sitio
-- react-hot-toast : Notificaciones del sitio
-- firebase : Base de datos
+- [@fortawesome/react-fontawesome](https://fontawesome.com/v5/docs/web/use-with/react) - Iconos del sitio
+- [react-hot-toast](https://react-hot-toast.com/docs) - Notificaciones del sitio
+- [firebase](https://firebase.google.com) - Base de datos
+
+## Autor:
+[@julianorozco](https://github.com/julianorozco)
